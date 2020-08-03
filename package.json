@@ -1,0 +1,27 @@
+{
+  "name": "static.pearcommerce.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexwyler/static.pearcommerce.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexwyler/static.pearcommerce.com/issues"
+  },
+  "homepage": "https://github.com/alexwyler/static.pearcommerce.com#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrent-transform": "^1.0.0",
+    "event-stream": "^4.0.1",
+    "gulp": "^3.9.1",
+    "gulp-awspublish": "^4.1.2",
+    "gulp-slack": "^0.1.2"
+  }
+}

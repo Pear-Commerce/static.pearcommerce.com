@@ -1,0 +1,3 @@
+[submodule "pear-scripts"]
+	path = pear-scripts
+	url = git@github.com:Pear-Commerce/pear-scripts.git
