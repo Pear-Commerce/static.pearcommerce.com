@@ -17,7 +17,7 @@ const config = require('./pear-scripts/configuration.js')(null, null, CONFIGS, n
 gulp.task('deploy', [], function(callback) {
     require('./pear-scripts/s3-cloudfront-deploy.js')({
         config: config,
-        cachedSources: ['./**/*'],
+        cachedSources: ['./static/**/*'],
         uncachedSources: [],
         revision: revision,
         revisionDetails: revisionDetails,

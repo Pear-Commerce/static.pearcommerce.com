@@ -1,0 +1,694 @@
+body {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+
+
+/* =============================================================================
+- Main Menu
+============================================================================= */
+#eut-header .eut-horizontal-menu ul.eut-menu > li {
+	float: right;
+}
+
+#eut-header .eut-horizontal-menu ul.eut-menu li {
+	direction: ltr;
+}
+
+#eut-header .eut-horizontal-menu ul.eut-menu ul {
+	left: auto;
+	right: 0;
+}
+
+#eut-header .eut-horizontal-menu ul.eut-menu li:not(.megamenu) ul ul {
+	left: auto;
+	right: 100%;
+	margin-left: 0;
+	margin-right: 2px;
+}
+
+/* Side Menu */
+#eut-main-header.eut-header-side .eut-main-header-wrapper {
+	padding-right: 0;
+	padding-left: 30px;
+}
+.eut-slide-menu ul.eut-menu .eut-arrow {
+	text-align: left;
+}
+
+.eut-slide-menu ul.eut-menu .eut-arrow:after {
+	content: '\e901';
+}
+
+.eut-slide-menu ul.eut-menu .eut-goback .eut-arrow {
+	left: auto;
+	right: 0;
+	text-align: right;
+}
+
+.eut-slide-menu ul.eut-menu .eut-goback .eut-arrow:after {
+	content: '\e903';
+}
+
+.eut-slide-menu ul.eut-menu .eut-goback a {
+	padding-left: 0;
+	padding-right: 30px;
+}
+
+.eut-slide-menu ul.eut-menu ul {
+	left: 0;
+	right: 100%;
+}
+
+#eut-hidden-menu:not(.eut-align-center) ul li {
+	text-align: right;
+}
+
+/* Close Button */
+.eut-close-btn-wrapper,
+.eut-close-btn {
+	text-align: right;
+}
+
+
+/* Sub Menu */
+#eut-header .eut-horizontal-menu ul.eut-menu ul.sub-menu {
+	text-align: right;
+}
+
+/* Header Elements */
+.eut-header-element {
+	direction: ltr;
+}
+
+/* Menu Label */
+#eut-header .eut-main-menu .eut-item .label,
+#eut-hidden-menu .eut-item .label {
+	margin-left: 0;
+	margin-right: 8px;
+}
+
+/* Arrow */
+#eut-header .eut-horizontal-menu.eut-arrow ul.eut-menu .menu-item-has-children > a::after {
+	display: none;
+}
+#eut-header .eut-horizontal-menu.eut-arrow ul.eut-menu .menu-item-has-children.eut-first-level > a::before {
+	content: '\f107';
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	height: 10px;
+	line-height: 10px;
+	margin-right: 2px;
+	position: relative;
+	top: 2px;
+	width: 10px;
+}
+
+/* Menu Icon */
+#eut-top-bar .eut-menu-icon,
+#eut-footer .eut-menu-icon,
+.eut-anchor-menu .eut-menu-icon,
+.widget_nav_menu .eut-menu-icon,
+#eut-header .eut-main-menu .eut-menu-icon,
+#eut-hidden-menu .eut-menu-icon {
+	margin-right: 0;
+	margin-left: 5px;
+}
+
+/* =============================================================================
+- Header
+============================================================================= */
+
+.eut-logo.eut-position-left,
+.eut-header-elements.eut-position-left,
+.eut-horizontal-menu.eut-position-left {
+	float: right
+}
+
+.eut-header-elements-wrapper.eut-position-right,
+.eut-header-elements.eut-position-right,
+.eut-horizontal-menu.eut-position-right {
+	float: left
+}
+
+/* =============================================================================
+- Side Header
+============================================================================= */
+#eut-main-header.eut-header-side {
+	right: 0;
+}
+
+#eut-main-header.eut-header-side .eut-main-header-wrapper {
+	padding-right: 0;
+}
+
+/* Boxed */
+body.eut-boxed #eut-theme-wrapper.eut-header-side #eut-main-header.eut-header-side {
+	right: auto;
+}
+
+/* =============================================================================
+- Side Area
+============================================================================= */
+.eut-sidearea-btn,
+.eut-sidearea-close-btn {
+    right: auto;
+	left: 30px;
+}
+#eut-sidearea {
+    padding-right: 60vw;
+	padding-left: 0;
+}
+.eut-side-area-wrapper .eut-side-area-content {
+    left: -30px;
+    padding-left: 30px;
+}
+
+#eut-theme-wrapper.eut-side-area-open {
+	-webkit-transform : scale(0.6) translateX(40vw) translateZ(0);
+	-moz-transform    : scale(0.6) translateX(40vw) translateZ(0);
+	-ms-transform     : scale(0.6) translateX(40vw) translateZ(0);
+	-o-transform      : scale(0.6) translateX(40vw) translateZ(0);
+	transform         : scale(0.6) translateX(40vw) translateZ(0);
+}
+
+
+/* =============================================================================
+- Back to top
+============================================================================= */
+.eut-back-top {
+    right: auto;
+	left: 30px;
+}
+
+/* =============================================================================
+- Icon
+============================================================================= */
+.eut-box-icon.eut-side-icon.eut-align-left .eut-single-icon {
+    margin-left: 10px;
+	margin-right: 0;
+}
+.eut-box-icon.eut-side-icon.eut-align-right .eut-single-icon {
+    margin-left: 0;
+	margin-right: 10px;
+}
+/* =============================================================================
+- Image
+============================================================================= */
+
+
+.eut-image.eut-align-left {
+    text-align: right;
+}
+.eut-align-left .eut-thumbnail-wrapper {
+	margin-left: auto;
+}
+.eut-align-left .eut-image-wrapper,
+.eut-image.eut-align-left .eut-image-wrapper,
+img.eut-align-left {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.eut-image.eut-align-right {
+    text-align: left;
+}
+.eut-align-right .eut-thumbnail-wrapper {
+	margin-left: 0;
+	margin-right: auto;
+}
+.eut-align-right .eut-image-wrapper,
+.eut-image.eut-align-right .eut-image-wrapper,
+img.eut-align-right {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* =============================================================================
+- Background Image
+============================================================================= */
+.eut-background-wrapper {
+	direction: ltr;
+}
+
+/* =============================================================================
+--- Blog Meta
+============================================================================= */
+.eut-post-meta li {
+	float: right;
+}
+
+/* =============================================================================
+--- Blog Small Media
+============================================================================= */
+.eut-blog-small .eut-blog-item {
+	direction: ltr;
+}
+
+.eut-blog-small .eut-blog-item .eut-post-content {
+	direction: rtl;
+}
+
+/* =============================================================================
+- Owl Carousel
+============================================================================= */
+#eut-feature-slider,
+.owl-carousel {
+	direction: ltr;
+}
+
+#eut-feature-slider .eut-content {
+	direction: rtl;
+}
+
+.eut-carousel-element .eut-carousel-item-wrapper {
+	float: right;
+}
+
+/* =============================================================================
+- Comments
+============================================================================= */
+#eut-comments .eut-comment-title {
+	padding-left: 0;
+	padding-right: 20px;
+}
+
+#eut-comments .eut-comment-date {
+	float: right;
+}
+
+#eut-comments .eut-comment-content {
+	padding-left: 0;
+	padding-right: 70px;
+}
+
+#eut-comments .children .eut-comment-item {
+	margin-left:0;
+	margin-right: 2.500rem;
+}
+
+/* =============================================================================
+- Magnific Popup
+============================================================================= */
+.mfp-counter {
+	right: auto;
+	left: 0;
+}
+
+.mfp-title {
+	text-align: right;
+	padding-left: 36px;
+	padding-right: 0;
+}
+
+.mfp-arrow-right {
+	left: 30px;
+	right: auto;
+}
+
+.mfp-arrow-left {
+	right: 30px;
+	left: auto;
+}
+
+.mfp-arrow-right:before {
+	content: '\e900';
+}
+
+.mfp-arrow-left:before {
+	content: '\e902';
+}
+
+.mfp-arrow-right:before {
+	position: absolute;
+	left: 30px;
+	top: 50%;
+	-webkit-transform: translate(0, -50%);
+	-moz-transform:    translate(0, -50%);
+	-ms-transform:     translate(0, -50%);
+	-o-transform:      translate(0, -50%);
+	transform:         translate(0, -50%);
+}
+
+.mfp-arrow-right:hover:before {
+	-webkit-transform: translate(-18px, -50%);
+	-moz-transform:    translate(-18px, -50%);
+	-ms-transform:     translate(-18px, -50%);
+	-o-transform:      translate(-18px, -50%);
+	transform:         translate(-18px, -50%);
+}
+
+.mfp-arrow-left:before {
+	position: absolute;
+	top: 50%;
+	left: -18px;
+	-webkit-transform: translate(0, -50%);
+	-moz-transform:    translate(0, -50%);
+	-ms-transform:     translate(0, -50%);
+	-o-transform:      translate(0, -50%);
+	transform:         translate(0, -50%);
+}
+
+.mfp-arrow-left:hover:before {
+	-webkit-transform: translate(18px, -50%);
+	-moz-transform:    translate(18px, -50%);
+	-ms-transform:     translate(18px, -50%);
+	-o-transform:      translate(18px, -50%);
+	transform:         translate(18px, -50%);
+}
+
+/* =============================================================================
+- Navigation Bar
+============================================================================= */
+.eut-navigation-bar {
+	direction: ltr;
+}
+
+.eut-navigation-bar .eut-nav-item .eut-title,
+.eut-navigation-bar .eut-related-content .eut-title {
+	direction: rtl;
+}
+
+/* =============================================================================
+- Single Post Tags
+============================================================================= */
+.eut-single-post-tags ul li {
+	margin-right: 0;
+	margin-left: 6px;
+}
+
+/* =============================================================================
+- Dropcap
+============================================================================= */
+p.eut-dropcap:first-letter {
+	float: none;
+}
+
+/* =============================================================================
+- Tabs
+============================================================================= */
+.eut-tab-icon.eut-position-left {
+	margin-left: 10px;
+	margin-right: 0;
+	float: right;
+}
+.eut-tab-icon.eut-position-right {
+	margin-left: 0;
+	margin-right: 10px;
+	float: left;
+}
+
+.eut-accordion-icon.eut-position-left  {
+	margin-left: 10px;
+	margin-right: 0;
+	float: right;
+}
+.eut-accordion-icon.eut-position-right {
+	margin-right: 10px;
+	margin-left: 0;
+	float: left;
+}
+
+/* =============================================================================
+- Woocommerce
+============================================================================= */
+.woocommerce div.product form.cart div.quantity {
+	float: right;
+	margin: 0 0 0 15px;
+}
+.woocommerce div.product form.cart .button {
+	float: right;
+}
+.woocommerce ul.cart_list li img,
+.woocommerce ul.product_list_widget li img {
+	margin-left: 20px;
+}
+
+.eut-var-label {
+	float: right;
+	margin-left: 10px;
+	margin-right: 0;
+	line-height: 66px;
+}
+
+.eut-product-item span.onsale {
+	left: auto;
+	right: 15px;
+}
+
+/* =============================================================================
+- Select Drop Down
+============================================================================= */
+#eut-theme-wrapper select  {
+	background-position: center left;
+}
+
+/* =============================================================================
+- Search
+============================================================================= */
+#eut-theme-wrapper .eut-search input[type='text'] {
+	padding-right: 10px;
+	padding-left: 50px;
+}
+
+#eut-theme-wrapper .eut-search button[type='submit'] {
+	right: auto;
+	left: 6px;
+}
+
+
+/* =============================================================================
+- Widget Contact Info (EUT WIDGET)
+============================================================================= */
+.eut-widget.eut-contact-info li i {
+	margin-right: 0;
+	margin-left: 20px;
+	float: right;
+}
+
+/* =============================================================================
+- Widget Archive
+============================================================================= */
+.widget.widget_archive li {
+	text-align: left;
+}
+
+.widget.widget_archive li a {
+	float: right;
+}
+
+/* =============================================================================
+- Widget Categories
+============================================================================= */
+.widget.widget_categories li {
+	text-align: left;
+}
+
+.widget.widget_categories li ul {
+	padding-left: 0;
+	padding-right: 10px;
+}
+
+.widget.widget_categories li a {
+	float: right;
+}
+
+/* =============================================================================
+- Widget Pages
+============================================================================= */
+.widget.widget_pages li ul {
+	padding-left: 0;
+	padding-right: 10px;
+}
+
+/* =============================================================================
+- Widget Calendar
+============================================================================= */
+.widget.widget_calendar caption {
+	text-align: right;
+}
+
+/* =============================================================================
+- Widget Tagcloud
+============================================================================= */
+.widget.widget_tag_cloud a {
+	margin-left: 4px;
+	margin-right: 0;
+}
+
+/* =============================================================================
+- Woo Tag Cloud
+============================================================================= */
+.eut-widget.woocommerce.widget_product_tag_cloud a {
+	margin-left: 4px;
+	margin-right: 0;
+}
+
+/* =============================================================================
+- Woo Categories Widget
+============================================================================= */
+
+.widget.woocommerce.widget_product_categories li {
+	text-align: left;
+}
+
+.widget.woocommerce.widget_product_categories ul li a {
+	float: right;
+}
+/* =============================================================================
+- Widget Custom Menu
+============================================================================= */
+.widget.widget_nav_menu li ul {
+	padding-left: 0;
+	padding-right: 10px;
+}
+
+/* =============================================================================
+- Widget Latest Comments (EUT WIDGET)
+============================================================================= */
+.eut-widget.eut-comments li img {
+	float: right;
+}
+
+.eut-widget.eut-comments li img + .eut-comment-content {
+	padding-left: 0;
+	padding-right: 20px;
+}
+
+/* =============================================================================
+- Widget Latest News (EUT WIDGET)
+============================================================================= */
+.eut-widget.eut-latest-news li a.eut-post-thumb + .eut-news-content {
+	padding-left: 0;
+	padding-right: 20px;
+}
+
+/* =============================================================================
+- Pagination
+============================================================================= */
+.eut-pagination .eut-icon-nav-right:before {
+	content: "\e901";
+}
+
+.eut-pagination .eut-icon-nav-left:before {
+	content: "\e903";
+}
+
+/* =============================================================================
+- Contact Forms
+============================================================================= */
+.wpcf7-form {
+	direction: rtl;
+}
+/* Form with icons */
+.wpcf7-form .eut-with-icon i {
+	position: absolute;
+	top: 14px;
+	left: auto;
+	right: 16px;
+	width: 40px;
+	text-align: center;
+}
+
+#eut-theme-wrapper .wpcf7-form .eut-with-icon input {
+	padding-left: 0;
+	padding-right: 40px;
+}
+
+/* =============================================================================
+- Columns
+============================================================================= */
+
+.eut-rtl-columns-reverse .eut-column-1-12,
+.eut-rtl-columns-reverse .eut-column-5-12,
+.eut-rtl-columns-reverse .eut-column-7-12,
+.eut-rtl-columns-reverse .eut-column-11-12,
+.eut-rtl-columns-reverse .eut-column-1-6,
+.eut-rtl-columns-reverse .eut-column-1-5,
+.eut-rtl-columns-reverse .eut-column-2-5,
+.eut-rtl-columns-reverse .eut-column-3-5,
+.eut-rtl-columns-reverse .eut-column-1-4,
+.eut-rtl-columns-reverse .eut-column-1-2,
+.eut-rtl-columns-reverse .eut-column-1-3,
+.eut-rtl-columns-reverse .eut-column-2-3,
+.eut-rtl-columns-reverse .eut-column-3-4,
+.eut-rtl-columns-reverse .eut-column-4-5,
+.eut-rtl-columns-reverse .eut-column-5-6,
+.eut-rtl-columns-reverse .eut-column-1 {
+	float: right;
+}
+
+
+/* =============================================================================
+- GDPR Privacy
+============================================================================= */
+.eut-privacy-content {
+	padding-right: 0;
+	padding-left: 300px;
+}
+
+.eut-privacy-buttons-wrapper {
+	right: auto;
+	left: 30px;
+}
+
+.eut-privacy-btn + .eut-privacy-btn {
+	margin-left: 0;
+	margin-right: 24px;
+}
+
+
+/* Position Left / Right */
+#eut-privacy-bar.eut-bar-position-left {
+	right: 15px;
+	left: auto;
+}
+
+#eut-privacy-bar.eut-bar-position-right {
+	right: auto;
+	left: 15px;
+}
+
+#eut-privacy-bar.eut-bar-position-left .eut-privacy-agreement,
+#eut-privacy-bar.eut-bar-position-right .eut-privacy-agreement {
+	float: left;
+}
+
+@media only screen and (max-width: 1023px) {
+	#eut-privacy-bar.eut-bar-position-left,
+	#eut-privacy-bar.eut-bar-position-right {
+		left: 15px;
+		right: 15px;
+		bottom: 15px;
+		width: auto;
+	}
+
+	.eut-privacy-content {
+		padding: 0;
+	}
+
+	.eut-privacy-buttons-wrapper {
+		position: relative;
+		top: 0;
+		right: 0;
+		-webkit-transform: translateY(0);
+		-moz-transform:    translateY(0);
+		-ms-transform:     translateY(0);
+		-o-transform:      translateY(0);
+		transform:         translateY(0);
+	}
+
+	.eut-privacy-agreement {
+		float: left;
+	}
+
+}
+
+
+/* =============================================================================
+--- GDPR Privacy Switcher
+============================================================================= */
+.eut-privacy-switch .eut-switch {
+	left: 0;
+	right: auto;
+}

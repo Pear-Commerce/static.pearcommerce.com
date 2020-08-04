@@ -1,0 +1,213 @@
+/*	Blockquote  */
+
+.editor-styles-wrapper .editor-block-list__layout .wp-block-freeform {
+	blockquote {
+		margin: 1em;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+
+	blockquote {
+		margin-bottom: 30px;
+		position: relative;
+		opacity: 0.8;
+	}
+	blockquote p {
+		margin-bottom: 0;
+	}
+	blockquote:before {
+		content: '"';
+		position: absolute;
+		top: 0.2em;
+		left: -0.4em;
+		font-size: 2.5em;
+	}
+	blockquote:last-child {
+		margin-bottom: 0;
+	}
+
+	p + blockquote {
+		margin-top: 30px;
+	}
+
+	hr + blockquote {
+		margin-top: 30px;
+	}
+}
+
+.editor-styles-wrapper {
+	.wp-block-quote:not(.is-large):not(.is-style-large) {
+		border: none;
+		padding-left: 0;
+	}
+	.wp-block-quote.is-large:before,
+	.wp-block-quote.is-style-large:before {
+		content: '';
+	}
+	
+	.wp-block-quote cite,
+	.wp-block-quote footer,
+	.wp-block-quote__citation {
+		opacity: 0.8;
+		color: inherit;
+		font-size: 13px;
+		font-style: italic;
+	}
+	
+	.wp-block-quote.is-large cite,
+	.wp-block-quote.is-large footer,
+	.wp-block-quote.is-style-large cite,
+	.wp-block-quote.is-style-large footer,
+	.wp-block-quote.is-large .wp-block-quote__citation,
+	.wp-block-quote.is-style-large .wp-block-quote__citation {
+		font-size: 18px;
+	}	
+}
+
+.editor-styles-wrapper {	
+	.wp-block-pullquote {
+	  border: none;
+	  color: #000;
+	}
+	.wp-block-pullquote blockquote {
+	  margin-top: calc(3 * 1rem);
+	  margin-bottom: calc(3.33 * 1rem);
+	  hyphens: auto;
+	  word-break: break-word;
+	}
+
+	.wp-block-pullquote blockquote {
+		opacity: 1;
+	}
+
+	.wp-block-pullquote blockquote:before {
+		content: '' !important;
+	}
+
+	.wp-block-pullquote p,
+	.wp-block-pullquote blockquote > .editor-rich-text p {
+		font-size: 28px;
+		line-height: 1.6;
+	}
+
+	.wp-block-pullquote.is-style-solid-color blockquote > .editor-rich-text p {
+		font-size: 32px;
+	}
+
+	.wp-block-pullquote.alignleft p,
+	.wp-block-pullquote.alignleft blockquote > .editor-rich-text p,
+	.editor-block-list__block[data-type="core/pullquote"][data-align="left"] .wp-block-pullquote.is-style-solid-color blockquote > .editor-rich-text p,
+	.wp-block-pullquote.alignright p,
+	.wp-block-pullquote.alignright blockquote > .editor-rich-text p,
+	.editor-block-list__block[data-type="core/pullquote"][data-align="right"] .wp-block-pullquote.is-style-solid-color blockquote > .editor-rich-text p {
+		font-size: 20px;
+	}
+
+	.wp-block-pullquote cite,
+	.wp-block-pullquote footer,
+	.wp-block-pullquote__citation {
+		font-size: 13px;
+		font-style: italic;
+	}
+}
+
+.wp-block-freeform.block-library-rich-text__tinymce {
+	code {
+		background: none;
+		font-size: inherit;
+	}
+	code,
+	pre {
+		font-family: 'Inconsolata', monospace;
+		-webkit-hyphens: none;
+		-moz-hyphens:    none;
+		-ms-hyphens:     none;
+		hyphens:         none;
+	}
+}
+
+/*	Table  */
+.mce-content-body {
+	table {
+		width: 100%;
+	}
+}
+
+/*	Blocks  */
+
+.editor-styles-wrapper {
+
+	.wp-block[data-align="wide"] {
+		max-width: 100%;
+	}
+	.wp-block[data-align="full"] {
+		max-width: none;
+	}
+
+	.wp-block-table__cell-content {
+		padding: 0;
+	}
+
+	.wp-block-table td,
+	.wp-block-table th {
+		word-break: initial;
+	}
+
+	.wp-block-gallery {
+		margin: 0;
+	}
+
+	.wp-block-shortcode {
+		background-color: #f8f9f9;
+		color: #000000;
+	}
+
+	ul.wp-block-archives,
+	.wp-block-categories,
+	.wp-block-latest-posts,
+	.wp-block-latest-comments	{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	ul.wp-block-archives ul,
+	.wp-block-categories ul,
+	.wp-block-latest-posts ul {
+		margin-left: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	.wp-block-archives li,
+	.wp-block-categories li,
+	.wp-block-latest-posts li {
+		margin-bottom: 6px;
+		text-align: left;
+		overflow: hidden;
+	}
+
+	.wp-block-archives, li a,
+	.wp-block-categories li a,
+	.wp-block-latest-posts li a {
+		text-decoration: none;
+		outline: 0;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+	}
+
+	.wp-block-archives, li ul,
+	.wp-block-categories li ul,
+	.wp-block-latest-posts li ul {
+		padding-left: 10px;
+	}
+
+	.wp-block-archives li:last-child,
+	.wp-block-categories li:last-child,
+	.wp-block-latest-posts li:last-child {
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+}
