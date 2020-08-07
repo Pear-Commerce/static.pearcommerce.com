@@ -4,7 +4,39 @@
             <KeyPrefixEquals>contact/</KeyPrefixEquals>
         </Condition>
         <Redirect>
-            <ReplaceKeyPrefixWith>homepage/</ReplaceKeyPrefixWith>
+            <ReplaceKeyPrefixWith>contact.html</ReplaceKeyPrefixWith>
+        </Redirect>
+    </RoutingRule>
+    <RoutingRule>
+        <Condition>
+            <KeyPrefixEquals>company/</KeyPrefixEquals>
+        </Condition>
+        <Redirect>
+            <ReplaceKeyPrefixWith>company.html</ReplaceKeyPrefixWith>
+        </Redirect>
+    </RoutingRule>
+    <RoutingRule>
+        <Condition>
+            <KeyPrefixEquals>cpg/</KeyPrefixEquals>
+        </Condition>
+        <Redirect>
+            <ReplaceKeyPrefixWith>cpg.html</ReplaceKeyPrefixWith>
+        </Redirect>
+    </RoutingRule>
+    <RoutingRule>
+        <Condition>
+            <KeyPrefixEquals>retail/</KeyPrefixEquals>
+        </Condition>
+        <Redirect>
+            <ReplaceKeyPrefixWith>retailer.html</ReplaceKeyPrefixWith>
+        </Redirect>
+    </RoutingRule>
+    <RoutingRule>
+        <Condition>
+            <KeyPrefixEquals>/</KeyPrefixEquals>
+        </Condition>
+        <Redirect>
+            <ReplaceKeyPrefixWith>home.html</ReplaceKeyPrefixWith>
         </Redirect>
     </RoutingRule>
 </RoutingRules>
