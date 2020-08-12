@@ -1,5 +1,14 @@
-node_modules/
-.idea/
 .DS_Store
-.awspublish-*
+node_modules/
+dist/build.js
+npm-debug.log
+yarn-error.log
 dist/
+.awspublish-*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

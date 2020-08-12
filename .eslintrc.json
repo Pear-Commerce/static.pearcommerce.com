@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "extends": [
+    "plugin:vue/essential",
+    "google"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "plugins": [
+    "vue",
+    "require-sort"
+  ],
+  "rules": {
+    "no-unused-vars": "warn",
+    "max-len": [
+      "error",
+      {
+        "code": 200
+      }
+    ],
+    "no-invalid-this": "warn",
+    "valid-jsdoc": "off",
+    "require-jsdoc": "off",
+    "sort-imports": "warn",
+    "require-sort/require-sort": "warn"
+  }
+}
