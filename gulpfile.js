@@ -13,7 +13,7 @@ const rename = require('gulp-rename');
 const source = require('vinyl-source-stream');
 const url = require('url');
 const vueify = require('gulp-vueify');
-
+const cssnext = require('cssnext');
 
 const CONFIGS = {
   development: {
@@ -28,22 +28,8 @@ const CONFIGS = {
 
 const config = require('./pear-scripts/configuration.js')(null, null, CONFIGS, null);
 
-gulp.task('copy-app', ['copy-app-top-level', 'copy-app-static']);
-
-gulp.task('copy-app-top-level', function() {
-  return gulp.src(['./static/index.html'])
-      .pipe(browserify({
-        transform: ['brfs'],
-      }))
-      .pipe(fileinclude({
-        prefix: '@@',
-        basepath: './static/',
-      })).on('error', console.log)
-      .pipe(gulp.dest('./dist/'));
-});
-
 gulp.task('copy-app-static', function() {
-  return gulp.src(['./static/**/*', '!./static/wp-*/**/*', '!./static/*.html', '!./static/js/index.js'])
+  return gulp.src(['./static/**/*', '!./static/wp-*/**/*', '!./static/js/index.js'])
       .pipe(gulp.dest('./dist/'));
 });
 
@@ -53,19 +39,7 @@ gulp.task('copy-wp-content', function() {
 });
 
 
-gulp.task('bundle-scripts', function() {
-  const task = gulp.src(['./static/js/index.js'])
-      .pipe(browserify({
-        debug: true,
-        transform: ['brfs'],
-      }))
-      .pipe(replace('$$CONFIG$$', JSON.stringify(config)));
-
-  return task.pipe(gulp.dest('dist/js/bundle.js'));
-});
-
-
-gulp.task('build', ['copy-app', 'bundle-scripts']);
+gulp.task('build', ['copy-app-staticwwww', 'bundle-scripts']);
 gulp.task('build-full', ['copy-app', 'copy-wp-content', 'bundle-scripts']);
 
 gulp.task('deploy', ['build-full'], function(callback) {
@@ -78,32 +52,6 @@ gulp.task('deploy', ['build-full'], function(callback) {
     waitForCloudfrontInvalidation: false,
   }, callback);
 });
-
-
-gulp.task('start-server', ['build'], function() {
-  browserSync.init({
-    server: {
-      baseDir: './dist',
-      middleware: function(req, res, next) {
-        let fileName = url.parse(req.url);
-
-        fileName = fileName.href.split(fileName.search).join(''),
-        fileExt = path.extname(fileName);
-
-        const fileExists = fs.existsSync(__dirname + '/dist/' + fileName);
-        if (!fileExists && fileName.indexOf('browser-sync') < 0 && ['', '.html'].indexOf(fileExt) >= 0) {
-          req.url = '/index.html';
-        }
-        return next();
-      },
-    },
-    port: 8002,
-    startPath: '/',
-  });
-});
-
-gulp.task('serve', ['build-full', 'start-server', 'watch']);
-
 
 gulp.task('watch', function() {
   // Watch app files
@@ -124,46 +72,41 @@ gulp.task('rename-vue-components', function() {
       .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('move-index-preprocessing', function() {
-  return gulp.src(['./static/js/index-2.js'])
-      .pipe(gulp.dest('./dist/js/pre/'));
-});
-
-gulp.task('vue-1', ['move-index-preprocessing', 'rename-vue-components'], function() {
-  return gulp.src(['./dist/**/*.vue'])
-      .pipe(vueify({}))
+gulp.task('compile-vue-components', function() {
+  return gulp.src(['./static/components/**/*.vue', './static/components/**/*.html'])
+      .pipe(vueify({postcss: [cssnext()]}))
       .on('error', console.log)
-      .pipe(gulp.dest('./dist/'));
+      .pipe(gulp.dest('./dist/components'));
 });
 
 
-gulp.task('bundle-index-2', ['vue-1'], function() {
-  return gulp.src(['./dist/js/pre/index-2.js'])
+gulp.task('bundle-index-js', ['compile-vue-components'], function() {
+  return gulp.src(['./static/js/index*.js'])
       .pipe(browserify({
+        paths: ['./node_modules', './static/js', './dist/components/'],
+        transform: ['brfs'],
       }))
+      .pipe(replace('$$CONFIG$$', JSON.stringify(config)))
       .pipe(gulp.dest('./dist/js/'));
 });
 
-gulp.task('vue-index-html', [], function() {
-  return gulp.src(['./static/html/index-2.html'])
-      .pipe(gulp.dest('./dist/'));
-});
 
-
-gulp.task('serve-vue-1', ['vue-index-html', 'bundle-index-2'], function() {
+gulp.task('serve', ['bundle-index-js', 'copy-app-static'], function() {
   browserSync.init({
     server: {
       baseDir: './dist',
       middleware: function(req, res, next) {
         let fileName = url.parse(req.url);
 
-        fileName = fileName.href.split(fileName.search).join(''),
-        fileExt = path.extname(fileName);
+        fileName = fileName.href.split(fileName.search).join('');
+        const fileExt = path.extname(fileName);
 
-        const fileExists = fs.existsSync(__dirname + '/dist/' + fileName);
+        const fullFilePath = __dirname + '/dist/' + fileName;
+        const fileExists = fs.existsSync(fullFilePath) && fs.lstatSync(fullFilePath).isFile();
         if (!fileExists && fileName.indexOf('browser-sync') < 0 && ['', '.html'].indexOf(fileExt) >= 0) {
-          req.url = '/index-2.html';
+          req.url = '/html/index.html';
         }
+        console.log(__dirname + '/dist/' + fileName + ' ' + fileExists, req.url);
         return next();
       },
     },

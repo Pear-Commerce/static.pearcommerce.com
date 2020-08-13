@@ -1,10 +1,16 @@
+const cssnext = require('cssnext');
+
+module.exports = {
+  postcss: [cssnext()],
+};
+
 module.exports = {
   // configure a built-in compiler
   sass: {
     includePaths: [],
   },
   // provide your own postcss plugins
-  postcss: [],
+  postcss: [cssnext()],
   // register custom compilers
   customCompilers: {
     // for tags with lang="ts"

@@ -23,6 +23,7 @@
     "browserify": "^13.0.1",
     "browserify-hmr": "^0.3.1",
     "cross-env": "^1.0.6",
+    "cssnext": "^1.8.4",
     "envify": "^3.4.1",
     "eslint": "^7.6.0",
     "eslint-config-google": "^0.14.0",
