@@ -43,6 +43,7 @@
     "uglify-js": "^2.5.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
+    "vue-meta": "^2.4.0",
     "vue-router": "^3.4.3",
     "vueify": "9.0.0",
     "watchify": "^3.4.0"

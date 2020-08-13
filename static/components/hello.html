@@ -4,10 +4,23 @@
 
 <script>
     module.exports = {
-        data: function() {
+        data: function () {
+            alert("hello");
             return {
                 greeting: "Hello"
             };
+        },
+        //insert the following code for vue-meta to work
+        metaInfo() {
+            return {
+                title: `${this.greeting} - Epiloge`,
+                meta: [
+                    {
+                        name: 'description',
+                        content: 'Connect and follow ' + this.greeting + ' on Epiloge - ' + this.greeting
+                    }
+                ]
+            }
         }
     };
 </script>

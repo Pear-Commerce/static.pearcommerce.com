@@ -30,6 +30,10 @@ const config = require('./pear-scripts/configuration.js')(null, null, CONFIGS, n
 
 gulp.task('copy-app-static', function() {
   return gulp.src(['./static/**/*', '!./static/wp-*/**/*', '!./static/js/index.js'])
+      .pipe(fileinclude({
+        prefix: '@@',
+        basepath: './static/',
+      }))
       .pipe(gulp.dest('./dist/'));
 });
 
@@ -38,9 +42,25 @@ gulp.task('copy-wp-content', function() {
       .pipe(gulp.dest('./dist/'));
 });
 
+gulp.task('compile-vue-components', function() {
+  return gulp.src(['./static/components/**/*.vue', './static/components/**/*.html'])
+      .pipe(vueify({postcss: [cssnext()]}))
+      .on('error', console.log)
+      .pipe(gulp.dest('./dist/components'));
+});
 
-gulp.task('build', ['copy-app-staticwwww', 'bundle-scripts']);
-gulp.task('build-full', ['copy-app', 'copy-wp-content', 'bundle-scripts']);
+gulp.task('bundle-js', ['compile-vue-components'], function() {
+  return gulp.src(['./static/js/index*.js'])
+      .pipe(browserify({
+        paths: ['./node_modules', './static/js', './dist/'],
+        transform: ['brfs'],
+      }))
+      .pipe(replace('$$CONFIG$$', JSON.stringify(config)))
+      .pipe(gulp.dest('./dist/js/'));
+});
+
+gulp.task('build', ['copy-app-static', 'bundle-js']);
+gulp.task('build-full', ['copy-app-static', 'copy-wp-content', 'bundle-js']);
 
 gulp.task('deploy', ['build-full'], function(callback) {
   require('./pear-scripts/s3-cloudfront-deploy.js')({
@@ -55,43 +75,14 @@ gulp.task('deploy', ['build-full'], function(callback) {
 
 gulp.task('watch', function() {
   // Watch app files
-  gulp.watch(['./static/*.html'], ['copy-app-top-level']);
-  gulp.watch(['./static/**/*', '!./static/wp-*/**/*', '!./static/*.html', '!./static/js/index.js'], ['copy-app-static']);
+  gulp.watch(['./static/**/*', '!./static/wp-*/**/*', '!./static/js/**/*.js', '!./static/components/**/*'], ['copy-app-static']);
   // watch wp-content
   gulp.watch('./static/wp-*/**/*', ['copy-wp-content']);
-  // Watch .js files
-  gulp.watch(['./static/**/*.js', '!./static/wp-*/**/*'], ['bundle-scripts', browserSync.reload]);
+  // Watch .js and components
+  gulp.watch(['./static/**/*.js', './static/components/**/*'], ['bundle-js', browserSync.reload]);
 });
 
-
-gulp.task('rename-vue-components', function() {
-  return gulp.src('./static/html/components/**/*')
-      .pipe(rename(function(path) {
-        path.extname = '.vue';
-      }))
-      .pipe(gulp.dest('./dist/'));
-});
-
-gulp.task('compile-vue-components', function() {
-  return gulp.src(['./static/components/**/*.vue', './static/components/**/*.html'])
-      .pipe(vueify({postcss: [cssnext()]}))
-      .on('error', console.log)
-      .pipe(gulp.dest('./dist/components'));
-});
-
-
-gulp.task('bundle-index-js', ['compile-vue-components'], function() {
-  return gulp.src(['./static/js/index*.js'])
-      .pipe(browserify({
-        paths: ['./node_modules', './static/js', './dist/components/'],
-        transform: ['brfs'],
-      }))
-      .pipe(replace('$$CONFIG$$', JSON.stringify(config)))
-      .pipe(gulp.dest('./dist/js/'));
-});
-
-
-gulp.task('serve', ['bundle-index-js', 'copy-app-static'], function() {
+gulp.task('start-server', ['build'], function() {
   browserSync.init({
     server: {
       baseDir: './dist',
@@ -106,7 +97,6 @@ gulp.task('serve', ['bundle-index-js', 'copy-app-static'], function() {
         if (!fileExists && fileName.indexOf('browser-sync') < 0 && ['', '.html'].indexOf(fileExt) >= 0) {
           req.url = '/html/index.html';
         }
-        console.log(__dirname + '/dist/' + fileName + ' ' + fileExists, req.url);
         return next();
       },
     },
@@ -114,3 +104,6 @@ gulp.task('serve', ['bundle-index-js', 'copy-app-static'], function() {
     startPath: '/',
   });
 });
+
+gulp.task('serve', ['start-server', 'watch', 'build-full']);
+
