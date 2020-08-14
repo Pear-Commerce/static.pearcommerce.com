@@ -10,12 +10,21 @@ Vue.use(VueMeta, {
   refreshOnceOnNavigation: true,
 });
 
+Vue.config.ignoredElements = [/^rs-/];
+
 const routes = [
-
-  {path: '/', component: require('components/home')},
-
-  {path: '/hello', component: require('components/hello')},
-
+  {path: '/', component: require('components/chrome'),
+    children: [
+      {
+        path: '/',
+        component: require('components/home'),
+      },
+      {
+        path: 'hello',
+        component: require('components/hello'),
+      },
+    ],
+  },
 ];
 
 const router = new VueRouter({
