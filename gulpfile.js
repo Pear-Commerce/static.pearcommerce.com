@@ -22,7 +22,7 @@ const CONFIGS = {
   },
   production: {
     bucket: 'static.pearcommerce.com',
-    slack: false,
+    slack: true,
   },
 };
 
