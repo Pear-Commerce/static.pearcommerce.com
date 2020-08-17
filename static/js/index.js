@@ -13,15 +13,28 @@ Vue.use(VueMeta, {
 Vue.config.ignoredElements = [/^rs-/];
 
 const routes = [
-  {path: '/', component: require('components/chrome'),
+  {
+    path: '/', component: require('components/chrome'),
     children: [
       {
         path: '/',
         component: require('components/home'),
       },
       {
-        path: 'hello',
-        component: require('components/hello'),
+        path: 'cpg',
+        component: require('components/cpg'),
+      },
+      {
+        path: 'retail',
+        component: require('components/retail'),
+      },
+      {
+        path: 'company',
+        component: require('components/company'),
+      },
+      {
+        path: 'contact',
+        component: require('components/contact'),
       },
     ],
   },

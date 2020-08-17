@@ -1,0 +1,179 @@
+<script>
+    module.exports = require('../js/home.js')
+</script>
+
+<template>
+   @@include('html/home.html')
+</template>
+
+<style scoped>
+    .eut-header-text-element .eut-btn {
+        top: -39px !important;
+    }
+
+    #eut-main-menu #menu-pear-commerce-desktop li {
+        padding: 0 4px;
+    }
+
+    @media only screen and (max-width: 767px) {
+        #eut-theme-wrapper .eut-btn {
+            font-size: 11px !important;
+            line-height: 2.29em;
+        }
+    }
+
+    .eut-btn {
+        text-transform: uppercase !important;
+    }
+
+    .eut-align-right {
+        text-align: left !important;
+    }
+
+    body {
+        /* Temp Fix */
+        background-color: white !important;
+        margin: auto !important;
+    }
+
+    eut-header.eut-fixed #eut-main-header.eut-header-default, #eut-header.eut-fixed #eut-main-header.eut-header-logo-top #eut-bottom-header {
+        /* position: fixed; */
+        position: absolute;
+
+    }
+
+    #slider-14-slide-47-layer-30 img {
+        width: 90%;
+    }
+
+    #eut-header.eut-fullwidth #eut-main-header:not(.eut-side-default) .eut-container, #eut-header.eut-fullwidth #eut-responsive-header .eut-container {
+        padding-left: 1.4rem;
+        padding-right: 1.3rem;
+    }
+
+    rs-module-wrap {
+        max-height: 200px !important;
+        height: auto !important;
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1200px) {
+        rs-module-wrap {
+            max-height: 100px !important;
+        }
+    }
+
+    .eut-page-title, #eut-feature-section {
+        overflow: visible !important;
+    }
+
+    @media only screen and (max-width: 767px) {
+        h1, .eut-h1, #eut-theme-wrapper .eut-modal .eut-search input[type="text"], .eut-dropcap span, p.eut-dropcap:first-letter {
+            font-size: 28px !important;
+            line-height: 1.23em !important;
+            margin-top: 20px !important;
+
+        }
+
+        .attachment-full.size-full {
+            width: auto !important;
+            max-height: 300px;
+        }
+    }
+
+    h4, .eut-h4 {
+        line-height: initial;
+
+    }
+
+    .vc_custom_1595963632813 {
+        margin-bottom: 15px !important;
+    }
+
+    .vc_custom_1595964877529 {
+        margin-bottom: 15px !important;
+    }
+
+    .vc_custom_1595963673262 {
+        margin-bottom: 15px !important;
+    }
+
+    .vc_custom_contact {
+        padding-top: 12% !important;
+        padding-right: 12% !important;
+        padding-bottom: 12% !important;
+        padding-left: 12% !important;
+        border-radius: 10px !important;
+    }
+
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    input,
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    textarea,
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    select,
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    .wpcf7-list-item-label:before {
+        border-width: 1px;
+        border-style: solid;
+        border-color: #eaeaea;;
+        background-color: transparent;;
+        color: #3f405b;;
+        font-size: 13px;;
+    }
+
+    .wpcf7-form .wpcf7-list-item-label:before {
+        border-color: #eaeaea !important;
+    }
+
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    input:focus,
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    textarea:focus,
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    select:focus {
+        border-color: #eaeaea;;
+        background-color: transparent;;
+        color: #3f405b;;
+    }
+
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    ::-webkit-input-placeholder {
+        color: #000000;
+    }
+
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    :-moz-placeholder {
+        color: #000000;
+    }
+
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    ::-moz-placeholder {
+        color: #000000;
+    }
+
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    :-ms-input-placeholder {
+        color: #000000;
+    }
+
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    :focus::-webkit-input-placeholder {
+        color: #000000;
+    }
+
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    :focus:-moz-placeholder {
+        color: #000000;
+    }
+
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    :focus::-moz-placeholder {
+        color: #000000;
+    }
+
+    .eut-contact-form.eut-contact-form-5f28531f0cd7e
+    :focus:-ms-input-placeholder {
+        color: #000000;
+    }
+
+</style>

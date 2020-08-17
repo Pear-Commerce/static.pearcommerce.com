@@ -43,7 +43,11 @@ gulp.task('copy-wp-content', function() {
 });
 
 gulp.task('compile-vue-components', function() {
-  return gulp.src(['./static/components/**/*.vue', './static/components/**/*.html'])
+  return gulp.src(['./static/components/**/*.vue'])
+      .pipe(fileinclude({
+        prefix: '@@',
+        basepath: './static/',
+      }))
       .pipe(vueify({postcss: [cssnext()]}))
       .on('error', console.log)
       .pipe(gulp.dest('./dist/components'));
