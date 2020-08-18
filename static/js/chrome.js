@@ -18,5 +18,7 @@ module.exports = {
   },
   mounted() {
     this.theme = dataOverride.bind(this)('theme', 'default');
+    console.log(this.$route);
+    console.log(this.$route.name);
   },
 };

@@ -1,0 +1,12 @@
+{
+  "chrome": {
+    "template": "chrome.html",
+    "script": "chrome.js",
+    "style": null
+  },
+  "home": {},
+  "retail": {},
+  "cpg": {},
+  "company": {},
+  "contact": {}
+}

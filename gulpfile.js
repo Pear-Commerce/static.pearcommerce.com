@@ -14,6 +14,7 @@ const source = require('vinyl-source-stream');
 const url = require('url');
 const vueify = require('gulp-vueify');
 const cssnext = require('cssnext');
+const vueComponentGen = require('./vue-component-gen');
 
 const CONFIGS = {
   development: {
@@ -42,18 +43,17 @@ gulp.task('copy-static-content', function() {
       .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('compile-vue-components', ['copy-static-content'], function() {
-  return gulp.src(['./static/components/**/*.vue'])
-      .pipe(fileinclude({
-        prefix: '@@',
-        basepath: './static/',
+gulp.task('gen-vue-components', ['copy-static-content'], function() {
+  return gulp.src(['./static/vue-components.json'])
+      .pipe(vueComponentGen({
+        base: 'static/',
       }))
       .pipe(vueify({postcss: [cssnext()]}))
       .on('error', console.log)
       .pipe(gulp.dest('./dist/components'));
 });
 
-gulp.task('bundle-js', ['compile-vue-components'], function() {
+gulp.task('bundle-js', ['gen-vue-components'], function() {
   return gulp.src(['./static/js/index*.js'])
       .pipe(browserify({
         paths: ['./node_modules', './static/js', './dist/'],
@@ -80,7 +80,7 @@ gulp.task('deploy', ['build-full'], function(callback) {
 
 gulp.task('watch', function() {
   // Watch app files
-  gulp.watch(['./static/**/*', '!./static/wp-*/**/*'], ['bundle-js']);
+  gulp.watch(['./static/**/*', '!./static/wp-*/**/*'], ['bundle-js', browserSync.reload]);
   // watch wp-content
   gulp.watch('./static/wp-*/**/*', ['copy-wp-content']);
 });
