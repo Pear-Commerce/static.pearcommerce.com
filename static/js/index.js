@@ -50,5 +50,3 @@ const app = new Vue({
   router,
 
 }).$mount('#app');
-
-console.log(app);

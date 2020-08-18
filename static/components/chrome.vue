@@ -1,24 +1,5 @@
 <script>
-    module.exports = {
-        data: function () {
-
-            return {
-                title: 'Pear Commerce - Connecting Shoppers To The Products and Retailers They Love.',
-                theme: 'default'
-            };
-        },
-        //insert the following code for vue-meta to work
-        metaInfo() {
-            return {
-                title: this.title,
-                meta: []
-            }
-        },
-        mounted() {
-            console.log(this);
-            this.theme = (this.$children && this.$children[0].theme) || 'default';
-        }
-    };
+    module.exports = require('js/chrome.js');
 </script>
 
 <template>

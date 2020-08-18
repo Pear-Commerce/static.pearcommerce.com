@@ -28,8 +28,13 @@ const CONFIGS = {
 
 const config = require('./pear-scripts/configuration.js')(null, null, CONFIGS, null);
 
-gulp.task('copy-app-static', function() {
-  return gulp.src(['./static/**/*', '!./static/wp-*/**/*', '!./static/js/index.js'])
+gulp.task('copy-wp-content', function() {
+  return gulp.src(['./static/wp-*/**/*'])
+      .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('copy-static-content', function() {
+  return gulp.src(['./static/**/*', '!./static/wp-*/**/*', '!./static/components/**/*', '!./static/css/**/*'])
       .pipe(fileinclude({
         prefix: '@@',
         basepath: './static/',
@@ -37,12 +42,7 @@ gulp.task('copy-app-static', function() {
       .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('copy-wp-content', function() {
-  return gulp.src(['./static/wp-*/**/*'])
-      .pipe(gulp.dest('./dist/'));
-});
-
-gulp.task('compile-vue-components', function() {
+gulp.task('compile-vue-components', ['copy-static-content'], function() {
   return gulp.src(['./static/components/**/*.vue'])
       .pipe(fileinclude({
         prefix: '@@',
@@ -58,13 +58,14 @@ gulp.task('bundle-js', ['compile-vue-components'], function() {
       .pipe(browserify({
         paths: ['./node_modules', './static/js', './dist/'],
         transform: ['brfs'],
+        debug: (config.env !== 'production'),
       }))
       .pipe(replace('$$CONFIG$$', JSON.stringify(config)))
       .pipe(gulp.dest('./dist/js/'));
 });
 
-gulp.task('build', ['copy-app-static', 'bundle-js']);
-gulp.task('build-full', ['copy-app-static', 'copy-wp-content', 'bundle-js']);
+gulp.task('build', ['bundle-js']);
+gulp.task('build-full', ['copy-wp-content', 'bundle-js']);
 
 gulp.task('deploy', ['build-full'], function(callback) {
   require('./pear-scripts/s3-cloudfront-deploy.js')({
@@ -79,11 +80,9 @@ gulp.task('deploy', ['build-full'], function(callback) {
 
 gulp.task('watch', function() {
   // Watch app files
-  gulp.watch(['./static/**/*', '!./static/wp-*/**/*', '!./static/js/**/*.js', '!./static/components/**/*'], ['copy-app-static']);
+  gulp.watch(['./static/**/*', '!./static/wp-*/**/*'], ['bundle-js']);
   // watch wp-content
   gulp.watch('./static/wp-*/**/*', ['copy-wp-content']);
-  // Watch .js and components
-  gulp.watch(['./static/**/*.js', './static/components/**/*'], ['bundle-js', browserSync.reload]);
 });
 
 gulp.task('start-server', ['build'], function() {
