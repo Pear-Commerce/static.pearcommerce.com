@@ -69,21 +69,29 @@
                                      class="eut-horizontal-menu eut-position-left eut-menu-type-classic eut-main-menu">
                                     <div class="eut-wrapper">
                                         <ul id="menu-pear-commerce-desktop" class="eut-menu">
-                                            <li id="menu-item-6369" :class="this.$route.path == '/' ? 'current-menu-item' : ''"
+                                            <li id="menu-item-6369"
+                                                :class="this.isPage('') ? 'current-menu-item' : ''"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-6344 current_page_item menu-item-6369 eut-first-level">
-                                                <a href="/"><span class="eut-item">Home</span></a></li>
-                                            <li id="menu-item-6364" :class="this.$route.path == '/cpg/' ? 'current-menu-item' : ''"
+                                                <router-link to="/">
+                                                    <span class="eut-item">Home</span>
+                                                </router-link>
+                                            </li>
+                                            <li id="menu-item-6364"
+                                                :class="this.isPage('cpg') ? 'current-menu-item' : ''"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-cpg eut-first-level">
-                                                <a href="/cpg/"><span class="eut-item">CPG Brands</span></a></li>
-                                            <li id="menu-item-6365" :class="this.$route.path == '/retail/' ? 'current-menu-item' : ''"
+                                                <a href="/cpg"><span class="eut-item">CPG Brands</span></a></li>
+                                            <li id="menu-item-6365"
+                                                :class="this.isPage('retail') ? 'current-menu-item' : ''"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-retailer eut-first-level">
-                                                <a href="/retail/"><span class="eut-item">Retailer</span></a></li>
-                                            <li id="menu-item-6239" :class="this.$route.path == '/company/' ? 'current-menu-item' : ''"
+                                                <a href="/retail"><span class="eut-item">Retailer</span></a></li>
+                                            <li id="menu-item-6239"
+                                                :class="this.isPage('company') ? 'current-menu-item' : ''"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-company eut-first-level">
-                                                <a href="/company/"><span class="eut-item">Company</span></a></li>
-                                            <li id="menu-item-6200" :class="this.$route.path == '/contact/' ? 'current-menu-item' : ''"
+                                                <a href="/company"><span class="eut-item">Company</span></a></li>
+                                            <li id="menu-item-6200"
+                                                :class="this.isPage('contact') ? 'current-menu-item' : ''"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-contact eut-first-level">
-                                                <a href="/contact/"><span class="eut-item">Contact</span></a></li>
+                                                <a href="/contact"><span class="eut-item">Contact</span></a></li>
                                         </ul>
                                     </div>
                                 </nav>
@@ -198,8 +206,8 @@
                                             class="eut-element eut-title eut-align-inherit eut-h6" style="">
                                         <span>Legal</span></h3>
                                         <div class="eut-element eut-text eut-small-text">
-                                            <p><a href="/privacy-policy/">Privacy Policy</a><br/>
-                                                <a href="/terms-of-use/">Terms of Use</a></p>
+                                            <p><a href="/privacy-policy">Privacy Policy</a><br/>
+                                                <a href="/terms-of-use">Terms of Use</a></p>
 
                                         </div>
                                     </div>
@@ -209,11 +217,11 @@
                             <div class="eut-column wpb_column eut-bookmark eut-column-1-5 eut-tablet-sm-column-1-3 eut-tablet-sm-align-center">
                                 <div class="eut-column-wrapper">
                                     <div class="eut-column-content"><h3
-                                            class="eut-element eut-title eut-align-inherit eut-h6" style=""><span>Client Portal</span>
+                                            class="eut-element eut-title eut-align-inherit eut-h6" style=""><span>Client Services</span>
                                     </h3>
                                         <div class="eut-element eut-text eut-small-text">
-                                            <p><a href="https://admin.pearcommerce.com/login">Client Login</a></p>
-
+                                            <p><a href="https://admin.pearcommerce.com/login">Client Portal</a><br/>
+                                                <a href="/pixel-installation.htm">Pixel Installation</a></p>
                                         </div>
                                     </div>
                                     <div class="eut-background-wrapper"></div>
@@ -305,30 +313,30 @@
                     <div id="eut-responsive-menu-wrapper" class="eut-menu-wrapper">
                         <ul id="menu-pear-commerce-desktop-1" class="eut-menu">
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-6344 current_page_item menu-item-6369 eut-first-level">
-                                <a href="/"><span class="eut-item">Home</span></a></li>
+                                <a href=""><span class="eut-item">Home</span></a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6364 eut-first-level">
-                                <a href="/cpg/"><span class="eut-item">CPG Brands</span></a></li>
+                                <a href="/cpg"><span class="eut-item">CPG Brands</span></a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6365 eut-first-level">
-                                <a href="/retail/"><span class="eut-item">Retailer</span></a></li>
+                                <a href="/retail"><span class="eut-item">Retailer</span></a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6239 eut-first-level">
-                                <a href="/company/"><span class="eut-item">Company</span></a></li>
+                                <a href="/company"><span class="eut-item">Company</span></a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6200 eut-first-level">
-                                <a href="/contact/"><span class="eut-item">Contact</span></a></li>
+                                <a href="/contact"><span class="eut-item">Contact</span></a></li>
                         </ul>
                     </div>
 
                     <div id="eut-responsive-hidden-menu-wrapper" class="eut-menu-wrapper">
                         <ul id="menu-pear-commerce-desktop-2" class="eut-menu">
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-6344 current_page_item menu-item-6369 eut-first-level">
-                                <a href="/"><span class="eut-item">Home</span></a></li>
+                                <a href=""><span class="eut-item">Home</span></a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6364 eut-first-level">
-                                <a href="/cpg/"><span class="eut-item">CPG Brands</span></a></li>
+                                <a href="/cpg"><span class="eut-item">CPG Brands</span></a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6365 eut-first-level">
-                                <a href="/retail/"><span class="eut-item">Retailer</span></a></li>
+                                <a href="/retail"><span class="eut-item">Retailer</span></a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6239 eut-first-level">
-                                <a href="/company/"><span class="eut-item">Company</span></a></li>
+                                <a href="/company"><span class="eut-item">Company</span></a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6200 eut-first-level">
-                                <a href="/contact/"><span class="eut-item">Contact</span></a></li>
+                                <a href="/contact"><span class="eut-item">Contact</span></a></li>
                         </ul>
                     </div>
                     <div class="eut-hidden-menu-text">

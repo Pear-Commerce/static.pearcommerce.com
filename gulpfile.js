@@ -35,7 +35,7 @@ gulp.task('copy-wp-content', function() {
 });
 
 gulp.task('copy-static-content', function() {
-  return gulp.src(['./static/**/*', '!./static/wp-*/**/*', '!./static/components/**/*', '!./static/css/**/*'])
+  return gulp.src(['./static/**/*', '!./static/wp-*/**/*'])
       .pipe(fileinclude({
         prefix: '@@',
         basepath: './static/',
@@ -95,12 +95,12 @@ gulp.task('start-server', ['build'], function() {
         fileName = fileName.href.split(fileName.search).join('');
         const fileExt = path.extname(fileName);
 
-        const fullFilePath = __dirname + '/dist/' + fileName;
+        const fullFilePath = __dirname + '/dist' + fileName;
         const fileExists = fs.existsSync(fullFilePath) && fs.lstatSync(fullFilePath).isFile();
         if (!fileExists && fileName.indexOf('browser-sync') < 0 && ['', '.html'].indexOf(fileExt) >= 0) {
           req.url = '/html/index.html';
         }
-        return next();
+        next();
       },
     },
     port: 8003,

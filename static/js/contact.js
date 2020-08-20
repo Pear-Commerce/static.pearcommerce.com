@@ -1,7 +1,7 @@
 module.exports = {
   data: function() {
     return {
-      theme: 'default',
+      theme: 'light',
     };
   },
   metaInfo() {

@@ -16,6 +16,7 @@
     <script type='text/javascript' src='/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
     <script type='text/javascript' src='/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.0'></script>
     <script type='text/javascript' src='/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.2.1'></script>
+
     <script type="text/javascript">
         window._wpemojiSettings = {
             "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/",
@@ -96,7 +97,8 @@
           href='/wp-content/themes/crocal/css/theme-style.css?ver=1.2.4' type='text/css' media='all'/>
     <link rel='stylesheet' id='crocal-eutf-custom-style-css' href='/wp-content/themes/crocal/css/elements.css?ver=1.2.4'
           type='text/css' media='all'/>
-    @@include('./html/crocal-eutf-custom-style-inline-css.html')
+    <link rel='stylesheet' id='crocal-eutf-custom-style-css-inline' href='/css/crocal-eutf-custom-style-inline-css.css'
+          type='text/css' media='all'/>
     <link rel='stylesheet' id='crocal-eutf-style-css' href='/wp-content/themes/crocal-child/style.css?ver=1.2.4'
           type='text/css' media='all'/>
     <link rel='stylesheet' id='js_composer_front-css'
@@ -352,7 +354,7 @@
             x.parentNode.insertBefore(s, x);
         }
 
-        if (w.attachEvent) {
+        if (    w.attachEvent) {
             w.attachEvent('onload', l);
         } else {
             w.addEventListener('load', l, false);

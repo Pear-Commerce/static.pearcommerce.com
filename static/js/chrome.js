@@ -1,6 +1,15 @@
 
 const dataOverride = function(propName, _default) {
-  return (this.$children && this.$children[0] && this.$children[0][propName]) || this[propName] || _default;
+  let prop = this[propName];
+  if (this.$children) {
+    let childProp = null;
+    this.$children.forEach((child) => {
+      if (child.$el.id == 'eut-theme-content') {
+        prop = child[propName];
+      }
+    })
+  }
+  return prop || _default;
 };
 
 module.exports = {
@@ -8,7 +17,13 @@ module.exports = {
     return {
       title: 'Pear Commerce - Connecting Shoppers To The Products and Retailers They Love.',
       theme: 'default',
+
     };
+  },
+  methods: {
+    isPage(page) {
+      return this.$route.path && page === this.$route.path.replace(/^\/|\/$/g, '');
+    }
   },
   metaInfo() {
     return {
@@ -18,7 +33,9 @@ module.exports = {
   },
   mounted() {
     this.theme = dataOverride.bind(this)('theme', 'default');
-    console.log(this.$route);
-    console.log(this.$route.name);
   },
+  updated() {
+    // Vue.forceUpdate();
+    // dispatchEvent(new Event('load'));
+  }
 };

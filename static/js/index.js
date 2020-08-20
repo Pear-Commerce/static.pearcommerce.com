@@ -7,7 +7,7 @@ Vue.config.productionTip = true;
 Vue.use(VueRouter);
 Vue.use(VueMeta, {
   // optional pluginOptions
-  refreshOnceOnNavigation: true,
+  refreshOnceOnNavigation: false,
 });
 
 Vue.config.ignoredElements = [/^rs-/];
