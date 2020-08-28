@@ -10,7 +10,7 @@
     </div>
 
     <!-- Theme Wrapper -->
-    <div id="eut-theme-wrapper" class="" data-mask-layer="2">
+    <div id="eut-theme-wrapper" data-loader="yes" class="" data-mask-layer="2">
         <div class="eut-wrapper-inner">
 
             <!-- HEADER -->
@@ -79,19 +79,23 @@
                                             <li id="menu-item-6364"
                                                 :class="this.isPage('cpg') ? 'current-menu-item' : ''"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-cpg eut-first-level">
-                                                <a href="/cpg"><span class="eut-item">CPG Brands</span></a></li>
+                                                <router-link v-bind:to="'cpg'"><span class="eut-item">CPG Brands</span></router-link>
+                                            </li>
                                             <li id="menu-item-6365"
                                                 :class="this.isPage('retail') ? 'current-menu-item' : ''"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-retailer eut-first-level">
-                                                <a href="/retail"><span class="eut-item">Retailer</span></a></li>
+                                                <router-link v-bind:to="'retail'"><span class="eut-item">Retailer</span></router-link>
+                                            </li>
                                             <li id="menu-item-6239"
                                                 :class="this.isPage('company') ? 'current-menu-item' : ''"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-company eut-first-level">
-                                                <a href="/company"><span class="eut-item">Company</span></a></li>
+                                            <router-link v-bind:to="'company'"><span class="eut-item">Company</span></router-link>
+                                            </li>
                                             <li id="menu-item-6200"
                                                 :class="this.isPage('contact') ? 'current-menu-item' : ''"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-contact eut-first-level">
-                                                <a href="/contact"><span class="eut-item">Contact</span></a></li>
+                                                <router-link v-bind:to="'contact'"><span class="eut-item">Contact</span></router-link>
+                                            </li>
                                         </ul>
                                     </div>
                                 </nav>
